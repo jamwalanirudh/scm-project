@@ -1,0 +1,31 @@
+ if (c.units_consumed < 0) {
+        printf("Error: Invalid readings (previous reading must be less than current reading)\n");
+        return;
+    }
+    
+    if (c.units_consumed <= 100) {
+        c.bill_amount = c.units_consumed * 3.0;
+    } else if (c.units_consumed <= 200) {
+        c.bill_amount = 100 * 3.0 + (c.units_consumed - 100) * 4.0;
+    } else if (c.units_consumed <= 300) {
+        c.bill_amount = 100 * 3.0 + 100 * 4.0 + (c.units_consumed - 200) * 5.0;
+    } else {
+        c.bill_amount = 100 * 3.0 + 100 * 4.0 + 100 * 5.0 + (c.units_consumed - 300) * 6.0;
+    }
+    
+    customers[num_customers] = c;
+    num_customers++;
+    
+    printf("Customer added successfully\n");
+}
+
+void print_customer(customer c) {
+    printf("%d\t%s\t%d\t%d\t%d\t%.2f\n", c.id, c.name, c.prev_reading, c.curr_reading, c.units_consumed, c.bill_amount);
+}
+
+void list_customers() {
+    printf("ID\tName\tPrev Reading\tCurr Reading\tUnits Consumed\tBill Amount\n");
+    for (int i = 0; i < num_customers; i++) {
+        print_customer(customers[i]);
+    }
+}
