@@ -1,0 +1,9 @@
+int main() {
+    int choice;
+    do {
+        printf("\nElectricity Bills Management\n");
+        printf("1. Add customer\n");
+        printf("2. List customers\n");
+        printf("3. Quit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
