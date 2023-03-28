@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define CUSTOMERS_MAX 100
+
+typedef struct {
+    int id;
+    char name[50];
+    int prev_reading;
+    int curr_reading;
+    int units_consumed;
+    float bill_amount;
+} customer;
+
+customer customers[CUSTOMERS_MAX]; // array to store all customers
+int num_customers = 0; // current number of customers
+
+void add_customer() {
+    if (num_customers >= CUSTOMERS_MAX) {
+        printf("Error: Maximum number of customers reached\n");
+        return;
+    }
+    
+    customer c;
+    c.id = num_customers + 1; // assign unique ID to customer
+    printf("Enter customer name: ");
+    scanf("%s", c.name);
+    printf("Enter previous reading (in kWh): ");
+    scanf("%d", &c.prev_reading);
+    printf("Enter current reading (in kWh): ");
+    scanf("%d", &c.curr_reading);

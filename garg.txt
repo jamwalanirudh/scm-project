@@ -1,0 +1,17 @@
+       switch (choice) {
+            case 1:
+                add_customer();
+                break;
+            case 2:
+                list_customers();
+                break;
+            case 3:
+                printf("Goodbye!\n");
+                break;
+            default:
+                printf("Error: Invalid choice\n");
+        }
+    } while (choice != 3);
+    
+    return 0;
+}

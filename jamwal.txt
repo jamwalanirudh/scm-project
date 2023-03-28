@@ -1,0 +1,16 @@
+customers[num_customers] = c;
+    num_customers++;
+    
+    printf("Customer added successfully\n");
+}
+
+void print_customer(customer c) {
+    printf("%d\t%s\t%d\t%d\t%d\t%.2f\n", c.id, c.name, c.prev_reading, c.curr_reading, c.units_consumed, c.bill_amount);
+}
+
+void list_customers() {
+    printf("ID\tName\tPrev Reading\tCurr Reading\tUnits Consumed\tBill Amount\n");
+    for (int i = 0; i < num_customers; i++) {
+        print_customer(customers[i]);
+    }
+}
