@@ -1,0 +1,18 @@
+c.units_consumed = c.curr_reading - c.prev_reading;
+    
+    if (c.units_consumed < 0) {
+        printf("Error: Invalid readings (previous reading must be less than current reading)\n");
+        return;
+    }
+    
+    if (c.units_consumed <= 100) {
+        c.bill_amount = c.units_consumed * 3.0;
+    } else if (c.units_consumed <= 200) {
+        c.bill_amount = 100 * 3.0 + (c.units_consumed - 100) * 4.0;
+    } else if (c.units_consumed <= 300) {
+        c.bill_amount = 100 * 3.0 + 100 * 4.0 + (c.units_consumed - 200) * 5.0;
+    } else {
+        c.bill_amount = 100 * 3.0 + 100 * 4.0 + 100 * 5.0 + (c.units_consumed - 300) * 6.0;
+    }
+    
+    customers[num_customers] = c;
